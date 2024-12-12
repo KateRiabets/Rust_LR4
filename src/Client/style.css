@@ -1,0 +1,247 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#appContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#leftPane {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+#userList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    flex: 1;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background: #fff;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стили для модального окна */
+#authModal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+#authModal .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+#authModal input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#authModal button {
+    padding: 10px 20px;
+    background-color: #ED95AC;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#authModal button:hover {
+    background-color: #ED95AC;
+}
+
+#authModal a {
+    display: block;
+    margin-top: 10px;
+    color: #ED95AC;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#authModal a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для панели чата */
+#chatContainer {
+    background-color: #f9f9f9;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    width: 0;
+}
+
+#chatHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ED95AC;
+    color: #fff;
+    padding: 10px;
+}
+
+#chatHeader #chatTitle {
+    font-weight: bold;
+}
+
+#chatHeader #closeChatBtn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fff;
+}
+
+#chatMessages .placeholder {
+    color: #999;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#chatInputContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#sendMessageBtn {
+    padding: 10px 20px;
+    background-color: #ED95AC;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sendMessageBtn:hover {
+    background-color: #ED95AC;
+}
+
+#attachButton,
+#recordAudioButton,
+#recordVideoButton {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#attachButton .icon,
+#recordAudioButton .icon,
+#recordVideoButton .icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Эффект красного кружка при записи */
+#recordAudioButton.recording::after,
+#recordVideoButton.recording::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 0, 0, 0.7);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Стили для отображения файла в сообщении */
+.file-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Когда чат открыт: userList - 25%, chat - 75% */
+body.chat-open #leftPane {
+    width: 25%;
+}
+
+body.chat-open #chatContainer {
+    width: 75%;
+}
+
+
+
+
+.download-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: 5px;
+}

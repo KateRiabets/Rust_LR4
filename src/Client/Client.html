@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список користувачів</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="appContainer">
+    <div id="leftPane">
+        <h1>Список користувачів</h1>
+        <ul id="userList">
+
+        </ul>
+    </div>
+
+
+    <div id="chatContainer">
+        <div id="chatHeader">
+            <span id="chatTitle">Оберіть користувача</span>
+            <button id="closeChatBtn">×</button>
+        </div>
+        <div id="chatMessages">
+
+            <div class="placeholder">Оберіть користувача, щоб почати чат</div>
+        </div>
+        <div id="chatInputContainer">
+            <button id="attachButton">
+                <img src="icons/attach.png" alt="Attach" class="icon">
+            </button>
+            <input type="file" id="fileInput" style="display:none;">
+            <input type="text" id="chatInput" placeholder="Введіть повідомлення...">
+
+
+            <button id="recordAudioButton">
+                <img src="icons/mic.png" alt="Audio" class="icon">
+            </button>
+            <button id="recordVideoButton">
+                <img src="icons/cam.png" alt="Video" class="icon">
+            </button>
+
+            <button id="sendMessageBtn">Надіслати</button>
+        </div>
+    </div>
+</div>
+
+<div id="authModal">
+    <div class="modal-content">
+        <h2 id="authTitle">Авторизуйтесь</h2>
+        <input type="text" id="username" placeholder="Логин">
+        <input type="password" id="password" placeholder="Пароль">
+        <button id="authButton">Увійти</button>
+        <a id="switchAuth">Нема акаунта? Реєстрація</a>
+    </div>
+</div>
+
+<!-- Подключение внешнего скрипта -->
+<script src="script.js"></script>
+</body>
+</html>
